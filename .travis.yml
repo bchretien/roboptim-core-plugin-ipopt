@@ -5,7 +5,7 @@ compiler:
 env:
   global:
   - APT_DEPENDENCIES="doxygen doxygen-latex libltdl-dev libboost-all-dev liblog4cxx10-dev coinor-libipopt-dev libblas-dev liblapack-dev libmumps-seq-dev gfortran"
-  - GIT_DEPENDENCIES="roboptim/roboptim-core"
+  - GIT_DEPENDENCIES="bchretien/roboptim-core"
   - DEBSIGN_KEYID=5AE5CD75
   - PPA_URI="roboptim/ppa"
   - NSIQCPPSTYLE_FILEFILTERPATH=cmake/filefilter.txt
@@ -23,6 +23,7 @@ branches:
   only:
   - master
   - debian
+  - eigen-ref
 script:
 - export LD_LIBRARY_PATH=`pkg-config --variable=plugindir roboptim-core`:$LD_LIBRARY_PATH; ./.travis/run build
 after_success: ./.travis/run after_success
